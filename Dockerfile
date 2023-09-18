@@ -1,5 +1,5 @@
 # Multi-stage build, see https://docs.docker.com/develop/develop-images/multistage-build/
-FROM alpine AS builder
+FROM alpine:3.18.3 AS builder
 
 ENV VERSION 0.9.3
 
@@ -7,11 +7,11 @@ ADD https://github.com/sabre-io/Baikal/releases/download/$VERSION/baikal-$VERSIO
 RUN apk add unzip && unzip -q baikal-$VERSION.zip
 
 # Final Docker image
-FROM nginx:1
+FROM nginx:1.25.2
 
 LABEL description="Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management."
 LABEL version="0.9.3"
-LABEL repository="https://github.com/ckulka/baikal-docker"
+LABEL repository="https://github.com/MrAlucardDante/baikal-docker-hass"
 LABEL website="http://sabre.io/baikal/"
 
 # Install dependencies: PHP (with libffi6 dependency) & SQLite3
@@ -38,6 +38,7 @@ RUN curl -o /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 COPY files/docker-entrypoint.d/*.sh files/docker-entrypoint.d/nginx/ /docker-entrypoint.d/
 COPY --from=builder --chown=nginx:nginx baikal /var/www/baikal
 COPY files/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --chown=nginx:nginx files/Plugin.php /var/www/baikal/vendor/sabre/dav/lib/CalDAV/Plugin.php
 
 VOLUME /var/www/baikal/config
 VOLUME /var/www/baikal/Specific
