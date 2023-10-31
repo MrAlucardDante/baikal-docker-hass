@@ -1,5 +1,5 @@
 # Multi-stage build, see https://docs.docker.com/develop/develop-images/multistage-build/
-FROM alpine:3.18.3 AS builder
+FROM alpine:3.18.4 AS builder
 
 ENV VERSION 0.9.3
 
@@ -7,7 +7,7 @@ ADD https://github.com/sabre-io/Baikal/releases/download/$VERSION/baikal-$VERSIO
 RUN apk add unzip && unzip -q baikal-$VERSION.zip
 
 # Final Docker image
-FROM nginx:1.25.2
+FROM nginx:1.25.3
 
 LABEL description="Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management."
 LABEL version="0.9.3"
