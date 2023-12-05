@@ -1,7 +1,7 @@
 # Multi-stage build, see https://docs.docker.com/develop/develop-images/multistage-build/
-FROM alpine:3.18.4 AS builder
+FROM alpine:3.18.5 AS builder
 
-ENV VERSION 0.9.3
+ENV VERSION 0.9.4
 
 ADD https://github.com/sabre-io/Baikal/releases/download/$VERSION/baikal-$VERSION.zip .
 RUN apk add unzip && unzip -q baikal-$VERSION.zip
@@ -10,7 +10,7 @@ RUN apk add unzip && unzip -q baikal-$VERSION.zip
 FROM nginx:1.25.3
 
 LABEL description="Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management."
-LABEL version="0.9.3"
+LABEL version="0.9.4"
 LABEL repository="https://github.com/MrAlucardDante/baikal-docker-hass"
 LABEL website="http://sabre.io/baikal/"
 
@@ -22,17 +22,17 @@ RUN curl -o /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
   apt remove -y lsb-release   &&\
   apt update                  &&\
     apt install -y            \
-    php8.1-curl               \
-    php8.1-fpm                \
-    php8.1-mbstring           \
-    php8.1-mysql              \
-    php8.1-sqlite3            \
-    php8.1-xml                \
+    php8.2-curl               \
+    php8.2-fpm                \
+    php8.2-mbstring           \
+    php8.2-mysql              \
+    php8.2-sqlite3            \
+    php8.2-xml                \
     sqlite3                   \
     msmtp msmtp-mta           &&\
   rm -rf /var/lib/apt/lists/* &&\
-  sed -i 's/www-data/nginx/' /etc/php/8.1/fpm/pool.d/www.conf &&\
-  sed -i 's/^listen = .*/listen = \/var\/run\/php-fpm.sock/' /etc/php/8.1/fpm/pool.d/www.conf
+  sed -i 's/www-data/nginx/' /etc/php/8.2/fpm/pool.d/www.conf &&\
+  sed -i 's/^listen = .*/listen = \/var\/run\/php-fpm.sock/' /etc/php/8.2/fpm/pool.d/www.conf
 
 # Add Baikal & nginx configuration
 COPY files/docker-entrypoint.d/*.sh files/docker-entrypoint.d/nginx/ /docker-entrypoint.d/
