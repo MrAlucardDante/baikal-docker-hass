@@ -1,9 +1,8 @@
 # Docker Compose file for a Baikal server
 
-version: "2"
 services:
   baikal:
-    image: ckulka/baikal:nginx
+    image: ghcr.io/mralucarddante/baikal-docker-hass:latest
     restart: always
     ports:
       - "80:80"

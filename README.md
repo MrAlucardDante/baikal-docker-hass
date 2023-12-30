@@ -12,7 +12,19 @@ I follow the same version naming scheme as [Baikal](http://sabre.io/baikal/) the
 
 The following tags support multiple architectures, e.g. `amd64`, `arm32v7`, `arm64v8` and `i386`.
 
-- [`0.9.3`, `latest`](https://github.com/MrAlucardDante/baikal-docker-hass/blob/0.9.3/Dockerfile)
+- [`0.9.4`, `latest`](https://github.com/MrAlucardDante/baikal-docker-hass/blob/0.9.4/Dockerfile)
+- [`0.9.3`](https://github.com/MrAlucardDante/baikal-docker-hass/blob/0.9.3/Dockerfile)
+
+## Quick reference
+
+- **Where to file issues**:
+  [https://github.com/MrAlucardDante/baikal-docker-hass/issues](https://github.com/MrAlucardDante/baikal-docker-hass/issues)
+- **Supported architectures** ([more info](https://github.com/docker-library/official-images#architectures-other-than-amd64)):
+  `amd64`, `arm32v7`, `arm64v8`, `i386`
+- **Image updates**:
+  [PRs for MrAlucardDante/baikal-docker-hass](https://github.com/MrAlucardDante/baikal-docker-hass/pulls)
+- **Source of this description**:
+  [https://github.com/MrAlucardDante/baikal-docker-hass](https://github.com/MrAlucardDante/baikal-docker-hass)
 
 ## What is Baikal?
 
@@ -29,7 +41,7 @@ From [sabre.io/baikal](http://sabre.io/baikal/):
 The following command will start Baikal:
 
 ```bash
-docker run --rm -it -p 80:80 ckulka/baikal:nginx
+docker run --rm -it -p 80:80 ghcr.io/mralucarddante/baikal-docker-hass:latest
 ```
 
 Alternatively, use the provided [examples/docker-compose.yaml](https://github.com/MrAlucardDante/baikal-docker-hass/blob/master/examples/docker-compose.yaml) from the Git repository:
@@ -46,7 +58,7 @@ The image exposes the `/var/www/baikal/Specific` and `/var/www/baikal/config` fo
 
 If you want to use local folders instead of Docker volumes, see [examples/docker-compose.localvolumes.yaml](https://github.com/MrAlucardDante/baikal-docker-hass/blob/master/examples/docker-compose.localvolumes.yaml) to avoid file permission issues.
 
-When the container starts, the startup script `/docker-entrypoint.d/40-fix-baikal-file-permissions.sh` ([Apache httpd](https://github.com/ckulka/baikal-docker/blob/master/files/docker-entrypoint.d/httpd/40-fix-baikal-file-permissions.sh), [nginx](https://github.com/ckulka/baikal-docker/blob/master/files/docker-entrypoint.d/nginx/40-fix-baikal-file-permissions.sh)) ensures that the file permissions are correct. You can disable this behaviour by setting the environment variable `BAIKAL_SKIP_CHOWN` to any value, e.g. `FALSE`.
+When the container starts, the startup script `/docker-entrypoint.d/40-fix-baikal-file-permissions.sh` (https://github.com/MrAlucardDante/baikal-docker-hass/blob/master/files/docker-entrypoint.d/nginx/40-fix-baikal-file-permissions.sh) ensures that the file permissions are correct. You can disable this behaviour by setting the environment variable `BAIKAL_SKIP_CHOWN` to any value, e.g. `FALSE`.
 
 ### Further Guides
 
