@@ -7,7 +7,6 @@ on:
     paths:
       - .github/workflows/docker-build.yml
       - Dockerfile
-      - files/**
   release:
     types:
       - published
