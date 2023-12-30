@@ -19,8 +19,6 @@ The following tags support multiple architectures, e.g. `amd64`, `arm32v7`, `arm
 
 - **Where to file issues**:
   [https://github.com/MrAlucardDante/baikal-docker-hass/issues](https://github.com/MrAlucardDante/baikal-docker-hass/issues)
-- **Supported architectures** ([more info](https://github.com/docker-library/official-images#architectures-other-than-amd64)):
-  `amd64`, `arm32v7`, `arm64v8`, `i386`
 - **Image updates**:
   [PRs for MrAlucardDante/baikal-docker-hass](https://github.com/MrAlucardDante/baikal-docker-hass/pulls)
 - **Source of this description**:
