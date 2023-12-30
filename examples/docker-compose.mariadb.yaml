@@ -1,10 +1,9 @@
 # Docker Compose file for a Baikal server with MariaDB 5
 # Based on issue https://github.com/ckulka/baikal-docker/issues/10
 
-version: "2"
 services:
   baikal:
-    image: ckulka/baikal:nginx
+    image: ghcr.io/mralucarddante/baikal-docker-hass:latest
     restart: always
     ports:
       - "80:80"

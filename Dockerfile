@@ -1,5 +1,5 @@
 # Multi-stage build, see https://docs.docker.com/develop/develop-images/multistage-build/
-FROM alpine:3.18.5 AS builder
+FROM alpine:3.19.0 AS builder
 
 ENV VERSION 0.9.4
 
@@ -35,7 +35,7 @@ RUN curl -o /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
   sed -i 's/^listen = .*/listen = \/var\/run\/php-fpm.sock/' /etc/php/8.2/fpm/pool.d/www.conf
 
 # Add Baikal & nginx configuration
-COPY files/docker-entrypoint.d/*.sh files/docker-entrypoint.d/nginx/ /docker-entrypoint.d/
+COPY files/docker-entrypoint.d/*.sh /docker-entrypoint.d/
 COPY --from=builder --chown=nginx:nginx baikal /var/www/baikal
 COPY files/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --chown=nginx:nginx files/Plugin.php /var/www/baikal/vendor/sabre/dav/lib/CalDAV/Plugin.php

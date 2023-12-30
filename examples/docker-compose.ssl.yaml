@@ -6,10 +6,9 @@
 # 2. Create acme.json: touch /etc/ssl/private/acme.json
 # 3. Start the stack: docker-compose -f docker-compose.ssl.yaml up
 
-version: "2"
 services:
   baikal:
-    image: ckulka/baikal:nginx
+    image: ghcr.io/mralucarddante/baikal-docker-hass:latest
     restart: always
     labels:
       traefik.enable: "true"
@@ -31,7 +30,7 @@ services:
 
   # See https://docs.traefik.io/
   traefik:
-    image: traefik:2.3
+    image: traefik:2.10.7
     restart: always
     ports:
       - 80:80
