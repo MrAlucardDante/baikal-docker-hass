@@ -2,8 +2,8 @@ name: docker build
 
 on:
   push:
-    branches:
-      - master
+    tags:
+      - '*'
     paths:
       - .github/workflows/docker-build.yml
       - Dockerfile
@@ -17,6 +17,7 @@ env:
 
 jobs:
   build:
+    if: ${{ !startsWith(github.event.head_commit.message, 'bump:') }}
     name: Build
     runs-on: ubuntu-latest
 

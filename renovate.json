@@ -17,7 +17,7 @@
         "MrAlucardDante"
       ],
       "bumpVersion": "patch",
-      "commitMessagePrefix": "chore(deps)",
+      "commitMessagePrefix": "fix(deps)",
       "labels": [
         "maintenance", 
         "renovate"
