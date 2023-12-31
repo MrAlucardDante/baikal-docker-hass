@@ -10,18 +10,5 @@
     ":ignoreUnstable",
     ":enableVulnerabilityAlertsWithLabel(security)",
     ":rebaseStalePrs"
-  ],
-  "packageRules": [
-    {
-      "assignees": [
-        "MrAlucardDante"
-      ],
-      "bumpVersion": "patch",
-      "commitMessagePrefix": "fix(deps)",
-      "labels": [
-        "maintenance", 
-        "renovate"
-      ]
-    }
   ]
 }
