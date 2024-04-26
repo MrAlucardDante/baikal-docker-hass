@@ -1,3 +1,9 @@
+## 0.9.5 (2024-04-26)
+
+### Fix
+
+- **renovate**: update commit prefix
+
 ## 0.9.4 (2023-12-31)
 
 ### Fix

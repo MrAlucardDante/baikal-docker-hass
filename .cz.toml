@@ -1,4 +1,4 @@
 [tool.commitizen]
-version = "0.9.4"
+version = "0.9.5"
 version_scheme = "semver"
 major_version_zero = true
