@@ -1,4 +1,4 @@
-FROM ckulka/baikal:0.9.5-nginx
+FROM ckulka/baikal:0.10.1-nginx
 
 LABEL description="Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management."
 LABEL version="0.9.4"
