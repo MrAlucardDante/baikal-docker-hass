@@ -1,3 +1,9 @@
+## 0.10.0 (2024-11-18)
+
+### Feat
+
+- **deps**: update ckulka/baikal docker tag to v0.10.1
+
 ## 0.9.5 (2024-04-26)
 
 ### Fix
