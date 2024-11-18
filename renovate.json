@@ -9,7 +9,15 @@
     ":enableVulnerabilityAlertsWithLabel(security)",
     ":rebaseStalePrs",
     ":assignAndReview(MrAlucardDante)",
-    ":semanticCommits",
-    ":semanticPrefixFix"
-  ]
+    ":semanticCommits"
+  ],
+  "packageRules": [
+      {
+        "matchPackageNames": [
+          "ckulka/baikal"
+        ],
+        "automerge": false,
+        "semanticCommitType": "feat"
+      }
+    ]
 }
