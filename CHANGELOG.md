@@ -1,3 +1,9 @@
+## 0.10.1 (2024-11-19)
+
+### Fix
+
+- **postgres**: added php postgres driver
+
 ## 0.10.0 (2024-11-18)
 
 ### Feat
